@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 320.5%;">
+    <head>
+        <meta charset="UTF-8" name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+        <meta name="full-screen" content="yes">
+        <title>播放足球视频</title>
+        <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+        <script src="asset/js/common.min.js"></script>
+        <script src="//static.adcode.cn/jssdk/weixinApi.js"></script>
+        
+        <script>
+            
+        </script>
+        <link rel="stylesheet" href="asset/css/common.min.css">
+        <style>
+        #question-box{
+            position: relative;
+        }
+        .text{
+                height: .6rem;
+                font-size: .6rem;
+                font-family: miaowu;
+                text-align: center;
+                line-height: 1;
+                color: #fff;
+                margin-top: .6rem;
+                letter-spacing: -.06rem;
+        }
+
+        .question{
+            background: url(./asset/img/index/ask.png) no-repeat;
+            background-size: 100% 100%;
+            width: 4.91rem;
+            height: 2.31rem;
+            position: absolute;
+            left: .28rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;}
+            .btn{
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <section id="index" class="" style="display: block;">
+                <div class="video-content">
+                    
+                    <video id="video-player" controls="false" autoplay="true">  
+                        <source type="video/mp4" src="./asset/mp4/test.mp4" />  
+                  
+                    </video>  
+
+                </div>
+            <div id="question-box" style="display:none">
+                <div class="q1 question"><div class="text">这球会进吗？</div></div>
+                <div id="q1-yes btn" class="yes">会</div><div id="q1-no" class="no btn">不会</div>
+                <div class="q2 question">求婚会成功吗？</div>
+                 <div id="q1-yes" class="yes btn">会</div><div id="q1-no" class="no btn">不会</div>
+                <div id="submit" class="submit">选好了提交</div><div class="review-video">不会答我要重看</div>
+            </div>
+            </section>
+        </div>
+        <div id="orientLayer" class="mod-orient-layer">
+            <div class="mod-orient-layer__content">
+                <i class="icon mod-orient-layer__icon-orient"></i>
+                <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏锁屏浏览</div>
+            </div>
+        </div>
+        <script>
+                // var md=document.getElementsByName("video");
+            var v=document.getElementById("video-player");
+            var q=document.getElementById("question-box");
+            v.addEventListener("ended",function(){
+                q.style.display="block";
+            })
+
+            var q1Flag = 0;
+            var q2Flag =0;
+            var q1_yes=document.getElementById('q1-yes');
+                q1_yes.onclick=function(){
+                    q1Flag =1;
+                    }
+            var q1_no=document.getElementById('q1-no');
+                q1_yes.onclick=function(){
+                    q1Flag =1;
+                    }
+            var q2_yes=document.getElementById('q2-yes');
+                q1_yes.onclick=function(){
+                    q2Flag =1;
+                    }
+            var q2_no=document.getElementById('q2-no');
+                q1_yes.onclick=function(){
+                    q2Flag =1;
+                    }
+            var start=document.getElementById('submit');
+            start.onclick=function(){
+                    if(q1Flag == 1&&q2Flag == 1){
+                        window.location.href="index-3.html";
+                    }else{
+                        alert("请先答题或重新观看视频")
+                    }
+                }
+
+            
+        </script>
+
+</html>
